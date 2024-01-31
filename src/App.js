@@ -25,20 +25,20 @@ function App() {
 
 
   return (
-    <div className={showForm ?"App bg-light model":"App model"} onClick={()=>{if(showForm)setShowForm(false)}}>
+    <div className={showForm ?"App bg-light":"App"} onClick={()=>{if(showForm)setShowForm(false)}}>
     <h1>User Details Model</h1>
     <button onClick={()=>setShowForm(true)}>Open Form</button>
-    {showForm && <form id='form' className='modal-content' onClick={(e)=> e.stopPropagation()} onSubmit={(e)=>handleSubmit(e)}>
+    {showForm && <form id='form' className='modal-content modal' onClick={(e)=> e.stopPropagation()} onSubmit={(e)=>handleSubmit(e)}>
       <h1>Fill Details</h1>
       <label>Username:</label>
-      <input type='text' value={username} required onChange={(e)=> setUsername(e.target.value)}/>
+      <input id='username' type='text' value={username} required onChange={(e)=> setUsername(e.target.value)}/>
       <label>Email Address:</label>
-      <input type='email' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+      <input type='email' id='email' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
       <label>Phone Number:</label>
-      <input type='number' value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)} required/>
+      <input id='phone' type='number' value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)} required/>
       <label>Date of Birth</label>
-      <input type='date' value={date} onChange={(e)=>setDate(e.target.value)} required/>
-      <button type='submit'>Submit</button>
+      <input id='dob' type='date' value={date} onChange={(e)=>setDate(e.target.value)} required/>
+      <button type='submit' className='submit-button'>Submit</button>
     </form> }
     </div>
   );
